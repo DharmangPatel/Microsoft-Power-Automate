@@ -1,0 +1,7 @@
+SET Excel_File_Path TO $'''G:\\Shared drives\\CA PCLaw -  VIALTO PARTNERS LLP Accounting Team\\Excel Macro Files VLOOKUP\\ADM Invoices Automation\\ADM Automation Template.xlsx'''
+Excel.LaunchExcel.LaunchAndOpenUnderExistingProcess Path: Excel_File_Path Visible: True ReadOnly: False Instance=> ExcelInstance
+Excel.SetActiveWorksheet.ActivateWorksheetByName Instance: ExcelInstance Name: $'''Fees'''
+Excel.ReadFromExcel.ReadAllCells Instance: ExcelInstance ReadAsText: False FirstLineIsHeader: True RangeValue=> ExcelDataFees
+Excel.SetActiveWorksheet.ActivateWorksheetByName Instance: ExcelInstance Name: $'''Expenses'''
+Excel.ReadFromExcel.ReadAllCells Instance: ExcelInstance ReadAsText: False FirstLineIsHeader: True RangeValue=> ExcelDataExpense
+Excel.CloseExcel.Close Instance: ExcelInstance
